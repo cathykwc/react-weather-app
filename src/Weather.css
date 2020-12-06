@@ -1,8 +1,3 @@
-.App {
-  max-width: 550px;
-  margin: 40px auto 15px auto;
-}
-
 .Weather {
   background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
   border: none;
@@ -11,7 +6,7 @@
   padding: 23px;
 }
 
-button {
+.Weather button {
   border: 1px solid black;
   border-radius: 4px;
   background: none;
@@ -23,10 +18,39 @@ button {
   transition: all 200ms ease-in-out;
 }
 
-button:hover {
+.Weather button:hover {
   background: black;
   box-shadow: none;
   color: white;
   cursor: pointer;
   opacity: 0.7;
+}
+
+.Weather ul {
+  margin: 0;
+  padding: 0;
+}
+
+.Weather li {
+  font-size: 20px;
+  list-style: none;
+}
+
+.Weather img {
+  height: 65px;
+  widht: 65px;
+  margin-right: 20px;
+}
+
+.Weather .temperature {
+  font-size: 60px;
+  line-height: 64px;
+}
+
+.Weather .unit {
+  font-size: 18px;
+  line-height: 1;
+  margin-left: 5px;
+  position: relative;
+  top: -30px;
 }

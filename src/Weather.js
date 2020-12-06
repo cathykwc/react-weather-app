@@ -1,5 +1,4 @@
 import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Weather.css";
 
 export default function Weather() {
@@ -18,10 +17,10 @@ export default function Weather() {
             />
           </div>
           <div className="col-3">
-            <button className="search-button">search</button>
+            <button className="search-button w-100">search</button>
           </div>
           <div className="col-4">
-            <button>current 📍</button>
+            <button className="w-100">current 📍</button>
           </div>
         </div>
       </form>
@@ -30,13 +29,18 @@ export default function Weather() {
           <li>Clear Sky</li>
           <li>Last updated: Thursday 12:25</li>
         </ul>
-        <div className="row">
+        <div className="row mt-4">
         <div className="col-7">
+          <div className="clearfix">
             <img
               src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
               alt="Partly Cloudy"
-            />
-            12°C 
+              className="float-left"
+            /> 
+            <div className="float-left">
+            <span className="temperature">12</span><span className="unit">°C</span> 
+            </div>
+            </div>
             </div>
         <div className="col-5">
           <ul>
