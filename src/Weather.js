@@ -20,7 +20,6 @@ function handleResponse(response) {
   
 }
 
-
 if (weatherData.ready) {
   return (
     <div className="Weather">
@@ -75,7 +74,7 @@ if (weatherData.ready) {
 } else { 
   const apiKey = "145ee08408729673b53d671c97d81b6d";
   let apiUrl = 
-  `http://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
+  `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(handleResponse);
   
   return "Loading...";
