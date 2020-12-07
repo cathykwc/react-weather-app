@@ -35,6 +35,7 @@
 
 .Weather li:first-letter {
     text-transform: capitalize;
+    display: in-line;
 }
 
 .Weather img {
