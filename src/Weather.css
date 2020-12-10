@@ -38,12 +38,9 @@
     display: in-line;
 }
 
-.Weather img {
-  height: 100px;
-  width: 100px;
-  margin-right: 5px;
-  position: relative;
-  top: -20px;
+.Weather canvas {
+margin-right: 10px;
+
 }
 
 .Weather .temperature {
