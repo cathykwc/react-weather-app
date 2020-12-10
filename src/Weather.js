@@ -17,7 +17,7 @@ function handleResponse(response) {
     city: response.data.name,
     feelsLike: Math.round(response.data.main.feels_like),
     humidity: response.data.main.humidity,
-    iconUrl: "https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+    iconUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   });
   
 }
