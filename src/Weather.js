@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
+import Loader from 'react-loader-spinner'
 import axios from "axios";
 import "./Weather.css";
 
@@ -39,6 +40,18 @@ function handleCitySubmitted(event) {
 setLocation(event.target.value);
 }
 
+function handleCurrentForecast(event) {
+     event.preventDefault();
+     navigator.geolocation.getCurrentPosition(getCurrentWeather);
+}
+
+function getCurrentWeather(position) {
+  let apiKey = "203da696788c9b8d29dc0497010394bf";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(handleResponse);
+  
+}
+
 if (weatherInformation.ready) {
   return (
     <div className="Weather">
@@ -59,7 +72,7 @@ if (weatherInformation.ready) {
             <button className="search-button w-100">search</button>
           </div>
           <div className="col-4">
-            <button className="w-100">current 📍</button>
+            <button className="w-100" onClick={handleCurrentForecast}>current 📍</button>
           </div>
         </div>
       </form>
@@ -71,6 +84,14 @@ if (weatherInformation.ready) {
   );
 } else { 
   search();
-  return "Loading...";
+  return (
+    <Loader
+         type="Hearts"
+         color="orange"
+         height={100}
+         width={100}
+         timeout={3000} //3 secs
+ />
+  );
   }
 }
