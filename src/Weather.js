@@ -46,10 +46,9 @@ function handleCurrentForecast(event) {
 }
 
 function getCurrentWeather(position) {
-  let apiKey = "203da696788c9b8d29dc0497010394bf";
+  let apiKey = "145ee08408729673b53d671c97d81b6d";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(handleResponse);
-  
 }
 
 if (weatherInformation.ready) {
