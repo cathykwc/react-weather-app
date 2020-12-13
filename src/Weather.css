@@ -38,11 +38,6 @@
     display: in-line;
 }
 
-.Weather canvas {
-margin-right: 15px;
-margin-top: 7px;
-
-}
 
 .Weather .temperature {
   font-size: 60px;
