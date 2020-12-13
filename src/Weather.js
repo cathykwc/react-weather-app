@@ -5,11 +5,11 @@ import axios from "axios";
 import "./Weather.css";
 
 export default function Weather(props) {
-  const [city, setCity] = useState(props.defaultCity);
-  const [weatherData, setWeatherData] = useState({ ready: false });
+  const [location, setLocation] = useState(props.defaultLocation);
+  const [weatherInformation, setWeatherInformation] = useState({ ready: false });
 function handleResponse(response) {
   console.log(response.data);
-  setWeatherData({
+  setWeatherInformation({
     ready: true, 
     date: new Date(response.data.dt * 1000),
     temperature: response.data.main.temp,
@@ -26,7 +26,7 @@ function handleResponse(response) {
 function search() {
  const apiKey = "145ee08408729673b53d671c97d81b6d";
   let apiUrl = 
-  `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(handleResponse);
 }
 
@@ -36,10 +36,10 @@ function handleSubmit(event) {
 }
 
 function handleCitySubmitted(event) {
-setCity(event.target.value);
+setLocation(event.target.value);
 }
 
-if (weatherData.ready) {
+if (weatherInformation.ready) {
   return (
     <div className="Weather">
       <form className="mb-4" onSubmit={handleSubmit}>
@@ -63,10 +63,10 @@ if (weatherData.ready) {
           </div>
         </div>
       </form>
-      <WeatherInfo data={weatherData} />
+      <WeatherInfo data={weatherInformation} />
       <br />
       <hr />
-      <WeatherForecast city={weatherData.city} />
+      <WeatherForecast city={weatherInformation.city} />
     </div>
   );
 } else { 

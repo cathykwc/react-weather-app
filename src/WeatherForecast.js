@@ -4,22 +4,22 @@ import WeatherForecastPreview from "./WeatherForecastPreview";
 import "./WeatherForecast.css";
 
 export default function WeatherForecast(props) {
-  const [loaded, setLoaded] = useState(false);
-  const [forecast, setForecast] = useState(null);
+  const [submitted, setSubmitted] = useState(false);
+  const [weatherPrediction, setweatherPrediction] = useState(null);
 
 function executeForecastResult(response) {
-  setForecast(response.data);
-  setLoaded(true);
+  setweatherPrediction(response.data);
+  setSubmitted(true);
 }
-if (loaded && props.city === forecast.city.name) { 
+if (submitted && props.city === weatherPrediction.city.name) { 
 return (
   <div className="WeatherForecast row">
-      <WeatherForecastPreview data={forecast.list[0]}/>
-      <WeatherForecastPreview data={forecast.list[1]}/>
-      <WeatherForecastPreview data={forecast.list[2]}/>
-      <WeatherForecastPreview data={forecast.list[3]}/>
-      <WeatherForecastPreview data={forecast.list[4]}/>
-      <WeatherForecastPreview data={forecast.list[5]}/>
+      <WeatherForecastPreview data={weatherPrediction.list[0]}/>
+      <WeatherForecastPreview data={weatherPrediction.list[1]}/>
+      <WeatherForecastPreview data={weatherPrediction.list[2]}/>
+      <WeatherForecastPreview data={weatherPrediction.list[3]}/>
+      <WeatherForecastPreview data={weatherPrediction.list[4]}/>
+      <WeatherForecastPreview data={weatherPrediction.list[5]}/>
   </div>
 );
 } else { 
